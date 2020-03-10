@@ -1,6 +1,6 @@
 {
   "name": "awesome-branch-name",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily generate warm, crunchy branch names.",
   "main": "index.js",
   "scripts": {
