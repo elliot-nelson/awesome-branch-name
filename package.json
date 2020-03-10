@@ -4,9 +4,16 @@
   "description": "Easily generate warm, crunchy branch names.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine"
   },
   "bin": "./cli.js",
+  "files": [
+    "cli.js",
+    "index.js"
+  ],
   "author": "Elliot Nelson",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^3.5.0"
+  }
 }
