@@ -1,0 +1,12 @@
+{
+  "name": "awesome-branch-name",
+  "version": "1.0.0",
+  "description": "Easily generate warm, crunchy branch names.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": "./cli.js",
+  "author": "Elliot Nelson",
+  "license": "MIT"
+}
