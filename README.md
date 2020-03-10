@@ -10,6 +10,7 @@ Install globally to generate delicious branch names with maximum efficiency.
 ```sh
 $ npm install -g awesome-branch-name
 $ awesome-branch-name
+```
 
 ## Usage
 
@@ -19,7 +20,7 @@ Print an awesome branch name.
 $ awesome-branch-name
 ```
 
-Or, run using `npx`.
+Or, you can run using `npx` (so portable!).
 
 ```sh
 $ npx awesome-branch-name
