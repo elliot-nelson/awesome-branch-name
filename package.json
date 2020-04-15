@@ -4,7 +4,8 @@
   "description": "Easily generate warm, crunchy branch names.",
   "main": "index.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "generate-base-names": "scripts/generate-base-names.js"
   },
   "bin": "./cli.js",
   "files": [
@@ -15,5 +16,8 @@
   "license": "MIT",
   "devDependencies": {
     "jasmine": "^3.5.0"
+  },
+  "dependencies": {
+    "syllable": "^4.0.1"
   }
 }
