@@ -6,6 +6,7 @@
 'use strict';
 
 const fs = require('fs');
+const util = require('util');
 const syllable = require('syllable');
 
 function getCardNames() {
@@ -45,7 +46,7 @@ function generateBaseNames() {
 
   console.log(`Loaded ${names.length} possible names, based on card names.`);
 
-  fs.writeFileSync('data/base-names.json', JSON.stringify(withScores));
+  fs.writeFileSync('data/base-names.json', util.inspect(withScores, { maxArrayLength: Infinity }));
 }
 
 generateBaseNames();
