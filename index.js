@@ -1,119 +1,67 @@
 'use strict';
 
-const animal = [
-  'kitten',
-  'shark',
-  'crab',
-  'dragon',
-  'kraken',
-  'cobra',
-  'iguana',
-  'goose',
-  'badger',
-  'lemming',
-  'lizard',
-  'manatee',
-  'narwhal',
-  'penguin',
-  'hedgehog',
-  'hippo',
-  'turtle',
-  'woodchuck',
-  'walrus',
-  'tuna',
-  'elephant',
-  'chimera',
-  'godzilla',
-  'tanuki',
-  'jackalope',
-  'monkey'
-];
+function getBreakpoint() {
+  // Today the best possible score is 75 points.
+  //
+  //   80% - cards with 69+ points
+  //   15% - cards with 60+ points
+  //    5% - cards with 50+ points
+  //
+  //
 
-const career = [
-  'ninja',
-  'pirate',
-  'ghost',
-  'zombie',
-  'robot',
-  'wizard',
-  'scholar',
-  'jedi'
-];
-
-const suffix = [
-  'rainbow',
-  'laser',
-  'cannon',
-  'torpedo',
-  'thunder',
-  'lightning',
-  'festival',
-  'party',
-  'cave',
-  'balloon',
-  'power',
-  'gift',
-  'splat',
-  'wedding',
-  'garbage',
-  'crystal',
-  'machine',
-  'enclave',
-  'banquet',
-  'spree',
-  'feast',
-  'battle',
-  'blast',
-  'explosion'
-];
-
-const prefix = [
-  'zany',
-  'clever',
-  'fancy',
-  'wacky',
-  'absurd',
-  'logical',
-  'wise',
-  'old',
-  'shiny',
-  'monster',
-  'super',
-  'chonky',
-  'mountain',
-  'valley',
-  'water',
-  'fire',
-  'earth',
-  'metal',
-  'trumpet',
-  'piano',
-  'keyboard',
-  'artificial',
-  'original',
-  'gleeful',
-  'oblong'
-];
-
-function random(list) {
-  return list[Math.floor(Math.random() * list.length)];
+  let dice = Math.random();
+  if (dice < 0.05) {
+    return 50;
+  } else if (dice < 0.2) {
+    return 60;
+  } else {
+    return 69;
+  }
 }
 
-function awesomeBranchName(subject) {
-  let options = [
-    [random(prefix), subject || random(animal), random(suffix)],
-    [random(prefix), subject || random(animal), random(suffix)],
-    [subject || random(prefix), random(animal), random(suffix)],
-    [subject || random(animal), random(suffix), random(suffix)],
-    [random(animal), subject || random(suffix), random(career)],
-    [subject || random(prefix), random(career), random(suffix)],
-    [random(suffix), subject || random(suffix), random(suffix)],
-    [random(prefix), subject || random(suffix), random(suffix)]
-  ].filter(option => {
-    return new Set(option).size === option.length;
-  });
+function getRandomBranchName() {
+  const names = require('./data/base-names');
+  const breakpoint = getBreakpoint();
+  let possible = names.filter(name => name.score >= breakpoint);
+  return possible[Math.floor(Math.random() * possible.length)].name;
+}
 
-  return random(options).join('-');
+function insertKeyword(name, keyword) {
+  let parts = name.split('-');
+
+  for (let choice of ['the', 'a', 'an', 'as', 'of', 'in', 'is', 'for']) {
+    if (parts.indexOf(choice) >= 0) {
+      parts[parts.indexOf(choice)] = keyword;
+      return parts.join('-');
+    }
+  }
+
+  if (parts.length === 1) {
+    parts.unshift(keyword);
+    return parts.join('-');
+  }
+
+  if (parts.length === 2) {
+    parts = [parts[0], keyword, parts[1]];
+    return parts.join('-');
+  }
+
+  let minLength = Math.min(...parts.map(part => part.length));
+  for (let i = parts.length - 1; i >= 0; i--) {
+    if (parts[i].length === minLength) {
+      parts[i] = keyword;
+      return parts.join('-');
+    }
+  }
+}
+
+function awesomeBranchName(keyword) {
+  let name = getRandomBranchName();
+  if (keyword) {
+    name = insertKeyword(name, keyword);
+  }
+
+  return name;
 }
 
 module.exports = awesomeBranchName;
