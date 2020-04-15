@@ -1,11 +1,12 @@
 {
   "name": "awesome-branch-name",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Easily generate warm, crunchy branch names.",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
-    "generate-base-names": "scripts/generate-base-names.js"
+    "generate-base-names": "scripts/generate-base-names.js",
+    "update-base-names": "scripts/update-base-names.sh"
   },
   "bin": "./cli.js",
   "files": [
