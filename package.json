@@ -10,7 +10,8 @@
   "bin": "./cli.js",
   "files": [
     "cli.js",
-    "index.js"
+    "index.js",
+    "data/base-names.json"
   ],
   "author": "Elliot Nelson",
   "license": "MIT",
