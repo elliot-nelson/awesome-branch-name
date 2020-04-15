@@ -1,6 +1,6 @@
 {
   "name": "awesome-branch-name",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Easily generate warm, crunchy branch names.",
   "main": "index.js",
   "scripts": {
@@ -15,9 +15,7 @@
   "author": "Elliot Nelson",
   "license": "MIT",
   "devDependencies": {
-    "jasmine": "^3.5.0"
-  },
-  "dependencies": {
+    "jasmine": "^3.5.0",
     "syllable": "^4.0.1"
   }
 }
