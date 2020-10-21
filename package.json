@@ -1,7 +1,8 @@
 {
   "name": "awesome-branch-name",
-  "version": "2.2.0",
-  "description": "Easily generate warm, crunchy branch names.",
+  "version": "2.2.1",
+  "description": "Generate awesome branch names",
+  "repository": "elliot-nelson/awesome-branch-name",
   "main": "index.js",
   "scripts": {
     "test": "jasmine",
